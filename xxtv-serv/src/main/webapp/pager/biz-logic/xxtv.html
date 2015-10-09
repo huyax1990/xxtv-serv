@@ -1,0 +1,1232 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="desktop landscape">
+<head>
+<meta name="baidu-site-verification" content="piJX98IcvB">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>网络电视直播_国外电视台直播_7天内电视回看 - good直播</title>
+<meta name="keywords" content="网络电视直播,电视直播,国外电视台直播,电视回看,good直播">
+<meta name="description"
+	content="good直播可免费观看CCTV付费的频道，提供国内各大电视台的在线直播，国外电视台直播，7天内任意时间段的电视节目回看，多线路可选保证您的流畅观看，请记住本站永久域名goodwd.cn">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href="${base}/assets/xxtv/homepage.css" rel="stylesheet"
+	type="text/css">
+<script charset="utf-8"
+	src="http://ers.baidu.com/app/s.js?siteId=6219106&amp;goTop=1"></script>
+<script src="//hm.baidu.com/hm.js?ef286e69b2fc9929a2fc088588654997"></script>
+<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="${base}/assets/xxtv/device.min.js"></script>
+<script src="${base}/assets/xxtv/pctom.js"></script>
+<script type="text/javascript">
+	(function($) {
+		$.fn.slideBox = function(options) {
+			var defaults = {
+				direction : 'left',
+				duration : 0.6,
+				easing : 'swing',
+				delay : 3,
+				startIndex : 0,
+				hideClickBar : true,
+				clickBarRadius : 5,
+				hideBottomBar : false,
+				width : null,
+				height : null
+			};
+			var settings = $.extend(defaults, options || {});
+			var wrapper = $(this), ul = wrapper.children('ul.items'), lis = ul
+					.find('li'), firstPic = lis.first().find('img');
+			var li_num = lis.size(), li_height = 0, li_width = 0;
+			var order_by = 'ASC';
+			var init = function() {
+				if (!wrapper.size())
+					return false;
+				li_height = settings.height ? settings.height : lis.first()
+						.height();
+				li_width = settings.width ? settings.width : lis.first()
+						.width();
+				wrapper.css({
+					width : li_width + 'px',
+					height : li_height + 'px'
+				});
+				lis.css({
+					width : li_width + 'px',
+					height : li_height + 'px'
+				});
+				if (settings.direction == 'left') {
+					ul.css('width', li_num * li_width + 'px')
+				} else {
+					ul.css('height', li_num * li_height + 'px')
+				}
+				;
+				ul.find('li:eq(' + settings.startIndex + ')')
+						.addClass('active');
+				if (!settings.hideBottomBar) {
+					var tips = $('<div class="tips"></div>')
+							.css('opacity', 0.6).appendTo(wrapper);
+					var title = $('<div class="title"></div>')
+							.html(
+									function() {
+										var active = ul.find('li.active').find(
+												'a'), text = active
+												.attr('title'), href = active
+												.attr('href');
+										return $('<a>').attr('href', href)
+												.text(text)
+									}).appendTo(tips);
+					var nums = $('<div class="nums"></div>').hide().appendTo(
+							tips);
+					lis
+							.each(function(i, n) {
+								var a = $(n).find('a'), text = a.attr('title'), href = a
+										.attr('href'), css = '';
+								i == settings.startIndex && (css = 'active');
+								$('<a>')
+										.attr('href', href)
+										.text(text)
+										.addClass(css)
+										.css('borderRadius',
+												settings.clickBarRadius + 'px')
+										.mouseover(
+												function() {
+													$(this).addClass('active')
+															.siblings()
+															.removeClass(
+																	'active');
+													ul
+															.find(
+																	'li:eq('
+																			+ $(
+																					this)
+																					.index()
+																			+ ')')
+															.addClass('active')
+															.siblings()
+															.removeClass(
+																	'active');
+													start();
+													stop()
+												}).appendTo(nums)
+							});
+					if (settings.hideClickBar) {
+						tips.hover(function() {
+							nums.animate({
+								top : '0px'
+							}, 'fast')
+						}, function() {
+							nums.animate({
+								top : tips.height() + 'px'
+							}, 'fast')
+						});
+						nums.show().delay(2000).animate({
+							top : tips.height() + 'px'
+						}, 'fast')
+					} else {
+						nums.show()
+					}
+				}
+				;
+				lis.size() > 1 && start()
+			};
+			var start = function() {
+				var active = ul.find('li.active'), active_a = active.find('a');
+				var index = active.index();
+				if (settings.direction == 'left') {
+					offset = index * li_width * -1;
+					param = {
+						'left' : offset + 'px'
+					}
+				} else {
+					offset = index * li_height * -1;
+					param = {
+						'top' : offset + 'px'
+					}
+				}
+				;
+				wrapper.find('.nums').find('a:eq(' + index + ')').addClass(
+						'active').siblings().removeClass('active');
+				wrapper.find('.title').find('a').attr('href',
+						active_a.attr('href')).text(active_a.attr('title'));
+				ul.stop().animate(param, settings.duration * 1000,
+						settings.easing, function() {
+							active.removeClass('active');
+							if (order_by == 'ASC') {
+								if (active.next().size()) {
+									active.next().addClass('active')
+								} else {
+									order_by = 'DESC';
+									active.prev().addClass('active')
+								}
+							} else if (order_by == 'DESC') {
+								if (active.prev().size()) {
+									active.prev().addClass('active')
+								} else {
+									order_by = 'ASC';
+									active.next().addClass('active')
+								}
+							}
+						});
+				wrapper.data('timeid', window.setTimeout(start,
+						settings.delay * 1000))
+			};
+			var stop = function() {
+				window.clearTimeout(wrapper.data('timeid'))
+			};
+			wrapper.hover(function() {
+				stop()
+			}, function() {
+				window.setTimeout(start, settings.delay * 1000);
+			});
+			var imgLoader = new Image();
+			imgLoader.onload = function() {
+				imgLoader.onload = null;
+				init()
+			};
+			imgLoader.src = firstPic.attr('src')
+		}
+	})(jQuery);
+	jQuery(function($) {
+		/*--index ptc loop--*/
+		$('#indexloop').slideBox({
+			duration : 0.6,
+			easing : 'linear',
+			delay : 5,
+			hideClickBar : false,
+			clickBarRadius : 10
+		});
+		/*--index tab hot tuijian--*/
+		$('#button1').mouseover(function() {
+			var tab1 = $('#indextab1');
+			var tab2 = $('#indextab2');
+			var botton2 = $('#button2');
+			if (tab1.hasClass('block')) {
+				return false;
+			} else {
+				$(this).removeClass('list3').addClass('tabtj');
+				botton2.removeClass('tabtj').addClass('list3');
+				tab2.removeClass('block').addClass('none');
+				tab1.removeClass('none').addClass('block');
+			}
+
+		});
+		$('#button2').mouseover(function() {
+			var tab1 = $('#indextab1');
+			var tab2 = $('#indextab2');
+			var botton1 = $('#button1');
+			if (tab2.hasClass('block')) {
+				return false;
+			} else {
+				$(this).removeClass('list3').addClass('tabtj');
+				botton1.removeClass('tabtj').addClass('list3');
+				tab1.removeClass('block').addClass('none');
+				tab2.removeClass('none').addClass('block');
+			}
+		});
+
+	});
+</script>
+<style type="text/css">
+#indexloop {
+	position: relative;
+	width: 290px;
+	height: 400px;
+	overflow: hidden;
+}
+
+#indexloop ul.items {
+	position: absolute;
+	float: left;
+	background: none;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#indexloop ul.items li {
+	float: left;
+	background: none;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#indexloop ul.items li a {
+	float: left;
+	line-height: normal !important;
+	padding: 0px !important;
+	border: none /*For IE.ADD.JENA.201206300844*/;
+}
+
+#indexloop ul.items li a img {
+	margin: 0px !important;
+	padding: 0px !important;
+	display: block;
+	border: none /*For IE.ADD.JENA.201206300844*/;
+}
+
+#indexloop .tips {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	background-color: #000;
+	overflow: hidden;
+}
+
+#indexloop .tips .title {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+}
+
+#indexloop .tips .title a {
+	color: #FFF;
+	font-size: 16px;
+	line-height: 40px;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+#indexloop .tips .title a:hover {
+	text-decoration: underline !important;
+}
+
+#indexloop .tips .nums {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+}
+
+#indexloop .tips .nums a {
+	display: inline-block; >
+	float: left /*For IE.ADD.JENA.201206300844*/;
+	width: 20px;
+	height: 20px;
+	background-color: #FFF;
+	text-indent: -99999px;
+	margin: 10px 10px 0px 0px;
+}
+
+#indexloop .tips .nums a.active {
+	background-color: #1773b1;
+}
+</style>
+</head>
+<body>
+	<div id="BAIDU_DUP_fp_wrapper"
+		style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;">
+		<iframe id="BAIDU_DUP_fp_iframe"
+			src="http://pos.baidu.com/wh/o.htm?ltr=&amp;cf=u"
+			style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe>
+	</div>
+	<div class="header">
+		<div class="top">
+			<div class="name">
+				<h1>
+					<a title="good直播" href="http://tv.goodwd.cn"><img width="251"
+						height="75" alt="good直播"
+						src="${base}/assets/xxtv/images/css/logo.jpg"></a>
+				</h1>
+			</div>
+			<ul class="ry">
+				<li><a href="/weishi/hunan.html" target="_blank">湖南卫视</a></li>
+				<li><a href="/weishi/zhejiang.html" target="_blank">浙江卫视</a></li>
+				<li><a href="/weishi/jiangsu.html" target="_blank">江苏卫视</a></li>
+				<li><a href="/weishi/shanghai.html" target="_blank">东方卫视</a></li>
+				<li><a href="/goodlive/duoxianlu.html" target="_blank">综合直播</a></li>
+				<li><a href="/remen.html" target="_blank">热门视频</a></li>
+				<li><a href="/zuixin.html" target="_blank">最新电影</a></li>
+				<li><a href="/jingdian.html" target="_blank">经典电影</a></li>
+				<li><a href="/xiju.html" target="_blank">喜剧电影</a></li>
+				<li><a href="/kongbu.html" target="_blank">恐怖电影</a></li>
+				<li><a href="/juqing.html" target="_blank">剧情电影</a></li>
+				<li><a href="/quanbu.html" target="_blank">全部电影</a></li>
+			</ul>
+			<div class="search">
+				<form action="http://s.goodwd.cn/cse/search" method="get"
+					target="_blank" name="formsearch">
+					<div class="form">
+						<h4>搜索</h4>
+						<input type="hidden" name="nsid" value="1"> <input
+							type="hidden" name="s" value="3412368571135458803"> <input
+							type="text" onblur="if(this.value==''){this.value='在这里搜索...';}"
+							onfocus="if(this.value=='在这里搜索...'){this.value='';}"
+							value="在这里搜索..." id="search-keyword" class="search-keyword"
+							name="q">
+						<button class="search-submit" type="submit"></button>
+					</div>
+				</form>
+				<img width="261" height="43" alt="good直播用户交流QQ群 118482680"
+					src="${base}/assets/xxtv/images/css/phone.jpg">
+			</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<div class="sub_nav center">
+		<div class="pro center">
+			<div class="topnav navw1">
+				<a href="/goodlive/pindao.html">电视直播<span>TV LIVE</span></a>
+			</div>
+			<div class="topnav navw2">
+				<a href="/zixun">生活资讯<span>LIFE INFORMATION</span></a>
+			</div>
+			<div class="topnav navw3">
+				<a href="/meitu">美女图片<span>BEAUTY PICTURE</span></a>
+			</div>
+			<div class="topnav navw4">
+				<a href="/video">娱乐视频<span>ENTERTAINMENT VIDEO</span></a>
+			</div>
+		</div>
+		<div class="pro_list center">
+			<div class="menu01">
+				<li><a title="中央台" href="/cctv/">中央台</a></li>
+				<li><a title="卫视台" href="/weishi/">卫视台</a></li>
+				<li><a title="地方台" href="/difang/">地方台</a></li>
+				<li><a title="国外台" href="/guowai/">国外台</a></li>
+				<li><a title="香港台" href="/xianggang/">香港台</a></li>
+				<li><a title="澳门台" href="/aomen/">澳门台</a></li>
+				<li><a title="台湾台" href="/taiwan/">台湾台</a></li>
+				<li><a title="其他类" href="/goodlive/">其他类</a></li>
+			</div>
+			<div class="menu02">
+				<li><a title="社会新闻" href="/zixun/shxw/list_1.html">社会新闻</a></li>
+				<li><a title="娱乐明星" href="/zixun/ylmx/list_1.html">娱乐明星</a></li>
+				<li><a title="科技前沿" href="/zixun/kjqy/list_1.html">科技前沿</a></li>
+				<li><a title="奇闻趣事" href="/zixun/qwqs/list_1.html">奇闻趣事</a></li>
+				<li><a title="军情解码" href="/zixun/jqjm/list_1.html">军情解码</a></li>
+				<li><a title="历史轶事" href="/zixun/lsys/list_1.html">历史轶事</a></li>
+				<li><a title="自然探索" href="/zixun/zrts/list_1.html">自然探索</a></li>
+				<li><a title="生活杂谈" href="/zixun/shzt/list_1.html">生活杂谈</a></li>
+			</div>
+			<div class="menu03">
+				<li><a title="校花" href="/meitu/xiaohua/list_1.html">校花</a></li>
+				<li><a title="明星" href="/meitu/mingxing/list_1.html">明星</a></li>
+				<li><a title="模特" href="/meitu/mote/list_1.html">模特</a></li>
+				<li><a title="清纯" href="/meitu/qingchun/list_1.html">清纯</a></li>
+				<li><a title="大胸" href="/meitu/daxiong/list_1.html">大胸</a></li>
+				<li><a title="翘臀" href="/meitu/qiaotun/list_1.html">翘臀</a></li>
+				<li id="w144"><a title="比基尼" href="/meitu/bijini/list_1.html">比基尼</a></li>
+				<li><a title="床照" href="/meitu/chuangzhao/list_1.html">床照</a></li>
+				<li><a title="车模" href="/meitu/chemo/list_1.html">车模</a></li>
+				<li><a title="街拍" href="/meitu/jiepai/list_1.html">街拍</a></li>
+				<li><a title="诱惑" href="/meitu/youhuo/list_1.html">诱惑</a></li>
+				<li><a title="丝袜" href="/meitu/siwa/list_1.html">丝袜</a></li>
+				<li><a title="制服" href="/meitu/zhifu/list_1.html">制服</a></li>
+				<li id="w244"><a title="AV女优" href="/meitu/avnvyou/list_1.html">AV女优</a></li>
+			</div>
+			<div class="menu04">
+				<li><a title="美女" href="/video/meinv/list_1.html">美女</a></li>
+				<li><a title="八卦" href="/video/bagua/list_1.html">八卦</a></li>
+				<li><a title="猥琐" href="/video/weisuo/list_1.html">猥琐</a></li>
+				<li><a title="搞笑" href="/video/gaoxiao/list_1.html">搞笑</a></li>
+				<li><a title="动物" href="/video/dongwu/list_1.html">动物</a></li>
+				<li><a title="牛人" href="/video/niuren/list_1.html">牛人</a></li>
+				<li><a title="汽车" href="/video/qiche/list_1.html">汽车</a></li>
+				<li><a title="足球" href="/video/zuqiu/list_1.html">足球</a></li>
+				<li><a title="篮球" href="/video/lanqiu/list_1.html">篮球</a></li>
+				<li><a title="台球" href="/video/taiqiu/list_1.html">台球</a></li>
+				<li><a title="小品" href="/video/xiaopin/list_1.html">小品</a></li>
+				<li><a title="相声" href="/video/xiangsheng/list_1.html">相声</a></li>
+				<li><a title="趣事" href="/video/qushi/list_1.html">趣事</a></li>
+				<li><a title="资讯" href="/video/zixun/list_1.html">资讯</a></li>
+			</div>
+			<div class="menu00"></div>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<div class="index-ad1">
+		<script type="text/javascript">
+			var cpro_id = "u2057598";
+			(window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id] = {
+				at : "3",
+				rsi0 : "1000",
+				rsi1 : "110",
+				pat : "6",
+				tn : "baiduCustNativeAD",
+				rss1 : "#C7EDCC",
+				conBW : "1",
+				adp : "1",
+				ptt : "0",
+				titFF : "%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",
+				titFS : "14",
+				rss2 : "#000000",
+				titSU : "0",
+				ptbg : "90",
+				piw : "0",
+				pih : "0",
+				ptp : "1"
+			}
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+			type="text/javascript"></script>
+		<div id="BAIDU_DUP_wrapper_u2057598_0">
+			<div
+				style="margin: 0 auto; width: 1000px; height: 110px; position: relative;">
+				<iframe id="cproIframe_u2057598_1" width="1000" height="110"
+					src="http://pos.baidu.com/acom?adn=3&amp;adp=1&amp;at=0&amp;aurl=&amp;c01=1&amp;cad=1&amp;ccd=24&amp;cec=UTF-8&amp;cfv=0&amp;ch=0&amp;col=zh-CN&amp;conBW=1&amp;conOP=1&amp;cpa=1&amp;cpro_lu=1%2C%23ffd7d5%2C%23000000%2C%E5%AE%8B%E4%BD%93&amp;dai=1&amp;dis=0&amp;layout_filter=image&amp;ltr=&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;lu_161=0&amp;lunum=6&amp;n=51tao_cpr&amp;pat=6&amp;pcs=1920x935&amp;pih=0&amp;pis=10000x10000&amp;piw=0&amp;ps=211x460&amp;psr=1920x1080&amp;pss=1920x211&amp;ptbg=90&amp;ptp=1&amp;ptt=0&amp;qn=867b549be8831b8e&amp;rad=&amp;rsi0=1000&amp;rsi1=110&amp;rsi5=4&amp;rss0=%23FFFFFF&amp;rss1=%23C7EDCC&amp;rss2=%23000000&amp;rss3=%23444444&amp;rss4=%23008000&amp;rss5=&amp;rss6=%23e10900&amp;rss7=&amp;scale=&amp;skin=tabcloud_skin_3&amp;stid=5&amp;td_id=2057598&amp;titFF=%25E5%25BE%25AE%25E8%25BD%25AF%25E9%259B%2585%25E9%25BB%2591&amp;titFS=14&amp;titSU=0&amp;titTA=left&amp;tn=baiduCustNativeAD&amp;tpr=1444399944336&amp;ts=1&amp;version=2.0&amp;xuanting=0&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dc=2&amp;di=u2057598&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;tt=1444399944232.106.322.330"
+					align="center,center" marginwidth="0" marginheight="0"
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+			</div>
+		</div>
+		<script charset="utf-8"
+			src="http://pos.baidu.com/acom?di=u2057598&amp;dcb=BAIDU_DUP2_define&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dbv=2&amp;dci=0&amp;dri=0&amp;dis=0&amp;dai=1&amp;dds=&amp;drs=1&amp;dvi=1442890359&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;liu=&amp;ltr=&amp;lcr=&amp;ps=211x460&amp;psr=1920x1080&amp;par=1920x1040&amp;pcs=1920x935&amp;pss=1920x211&amp;pis=-1x-1&amp;cfv=0&amp;ccd=24&amp;chi=1&amp;cja=true&amp;cpl=5&amp;cmi=7&amp;cce=true&amp;col=zh-CN&amp;cec=UTF-8&amp;cdo=-1&amp;tsr=95&amp;tlm=1444115970&amp;tcn=1444399944&amp;tpr=1444399944336&amp;dpt=none&amp;coa=at%3D3%26rsi0%3D1000%26rsi1%3D110%26pat%3D6%26tn%3DbaiduCustNativeAD%26rss1%3D%2523C7EDCC%26conBW%3D1%26adp%3D1%26ptt%3D0%26titFF%3D%2525E5%2525BE%2525AE%2525E8%2525BD%2525AF%2525E9%25259B%252585%2525E9%2525BB%252591%26titFS%3D14%26rss2%3D%2523000000%26titSU%3D0%26ptbg%3D90%26piw%3D0%26pih%3D0%26ptp%3D1%26c01%3D1&amp;dpr=1&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;baidu_id="></script>
+	</div>
+	<div class="main1">
+		<div id="iloop">
+			<div id="indexloop" style="width: 290px; height: 400px;">
+				<ul class="items" style="width: 580px; left: -288.55px;">
+					<li class="" style="width: 290px; height: 400px;"><a
+						href="http://m.goodwd.cn" title="手机看电影无需任何播放器" target="_blank"><img
+							src="/images/erweima.jpg"></a></li>
+					<li class="active" style="width: 290px; height: 400px;"><a
+						href="/zuixin.html" title="2015年国产电影霸占票房榜" target="_blank"><img
+							src="https://img.alicdn.com/imgextra/i1/349116136/TB2QE_ReFXXXXadXpXXXXXXXXXX_!!349116136.jpg"></a></li>
+				</ul>
+				<div class="tips" style="opacity: 0.6;">
+					<div class="title">
+						<a href="/zuixin.html">2015年国产电影霸占票房榜</a>
+					</div>
+					<div class="nums" style="">
+						<a href="http://m.goodwd.cn" class="" style="border-radius: 10px;">手机看电影无需任何播放器</a><a
+							href="/zuixin.html" class="active" style="border-radius: 10px;">2015年国产电影霸占票房榜</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="indexhot">
+			<div class="hottj">
+				<li id="button2" class="list3">小编推荐</li>
+				<li id="button1" class="tabtj">本周热门</li>
+			</div>
+			<div id="indextab1" class="block">
+				<div class="onenews">
+					<h2 class="new-tit">
+						<a title="关于刘强东和奶茶妹妹分手来龙去脉" href="/zixun/ylmx/2368.html">关于刘强东和奶茶妹妹分手来龙去脉</a>
+					</h2>
+					<p>
+						她，清华校花，生于1993年，一杯奶茶捧红她； 他，京东总裁，生于1974年，霸道总裁爱上她。 相差17岁，这背后究竟...<a
+							title="关于刘强东和奶茶妹妹分手来龙去脉" href="/zixun/ylmx/2368.html">[详情]</a>
+					</p>
+
+				</div>
+				<ul class="d2">
+					<li><span>2015-03-29</span><a title="男女都走不出不了“27岁定律”，说得太"
+						href="/zixun/shzt/4436.html">男女都走不出不了“27岁定律”，说得太</a></li>
+					<li><span>2015-03-29</span><a title="中国绝版老香烟，见过其中一样就证明你"
+						href="/zixun/shzt/4430.html">中国绝版老香烟，见过其中一样就证明你</a></li>
+					<li><span>2015-02-10</span><a title="刘诗诗照片被诈骗集团盗用敲诈开价300"
+						href="/zixun/ylmx/2530.html">刘诗诗照片被诈骗集团盗用敲诈开价300</a></li>
+					<li><span>2015-01-26</span><a title="羊年春晚语言类节目超10个走“定制”路"
+						href="/zixun/ylmx/2531.html">羊年春晚语言类节目超10个走“定制”路</a></li>
+					<li><span>2015-01-26</span><a title="陈赫离婚十大狗血事件：还没离又复婚？"
+						href="/zixun/ylmx/2528.html">陈赫离婚十大狗血事件：还没离又复婚？</a></li>
+					<li><span>2015-01-26</span><a title="奶茶妹妹刘强东现身泰国亲密同游破分手"
+						href="/zixun/ylmx/2527.html">奶茶妹妹刘强东现身泰国亲密同游破分手</a></li>
+					<li><span>2015-01-20</span><a title="军训学生跪舔厕所校方称学生恶搞"
+						href="/zixun/shxw/2448.html">军训学生跪舔厕所校方称学生恶搞</a></li>
+					<li><span>2015-01-20</span><a title="女儿跟婆婆关系好亲妈吃醋大骂"
+						href="/zixun/shxw/2445.html">女儿跟婆婆关系好亲妈吃醋大骂</a></li>
+					<li><span>2015-01-20</span><a title="吴奇隆刘诗诗领证完婚"
+						href="/zixun/ylmx/2444.html">吴奇隆刘诗诗领证完婚</a></li>
+
+				</ul>
+			</div>
+			<div id="indextab2" class="none">
+				<div class="onenews">
+					<h2 class="new-tit">
+						<a title="看看杜蕾斯是怎么借势打广告的，真是服" href="/zixun/shzt/2390.html">看看杜蕾斯是怎么借势打广告的，真是服</a>
+					</h2>
+					<p>
+						论借势营销，估计微博上真没人玩得过杜蕾斯。2011年，北京一场大雨淹没京城。杜蕾斯想出将避孕套套在鞋子上防雨的创意...<a
+							title="看看杜蕾斯是怎么借势打广告的，真是服" href="/zixun/shzt/2390.html">[详情]</a>
+					</p>
+				</div>
+				<ul class="d2">
+					<li><span>2015-03-29</span><a title="男女都走不出不了“27岁定律”，说得太"
+						href="/zixun/shzt/4436.html">男女都走不出不了“27岁定律”，说得太</a></li>
+					<li><span>2015-03-29</span><a title="中国绝版老香烟，见过其中一样就证明你"
+						href="/zixun/shzt/4430.html">中国绝版老香烟，见过其中一样就证明你</a></li>
+					<li><span>2014-12-23</span><a title="唐太宗李世民亲理冤案"
+						href="/zixun/lsys/1952.html">唐太宗李世民亲理冤案</a></li>
+					<li><span>2014-12-22</span><a title="人生只要努力没有过不去的坎"
+						href="/zixun/shzt/2116.html">人生只要努力没有过不去的坎</a></li>
+					<li><span>2014-12-22</span><a title="刘邦选才不愧能成为帝王"
+						href="/zixun/lsys/2110.html">刘邦选才不愧能成为帝王</a></li>
+					<li><span>2014-12-22</span><a title="俄罗斯发现一奇石 含有3万颗小钻石"
+						href="/zixun/qwqs/2104.html">俄罗斯发现一奇石 含有3万颗小钻石</a></li>
+					<li><span>2014-12-15</span><a title="网购的好评商品为啥不像评价说的那样好"
+						href="/zixun/shzt/1891.html">网购的好评商品为啥不像评价说的那样好</a></li>
+					<li><span>2014-12-14</span><a title="看看未来的客机长啥样？更快、更高、更"
+						href="/zixun/kjqy/1861.html">看看未来的客机长啥样？更快、更高、更</a></li>
+					<li><span>2014-11-16</span><a title="76岁妇人跌落月台 被列车拖行10米死亡"
+						href="/zixun/shxw/1770.html">76岁妇人跌落月台 被列车拖行10米死亡</a></li>
+					<li><span>2014-11-15</span><a title="武汉一高校因土地纠纷遭200吨渣土堵门"
+						href="/zixun/shxw/1762.html">武汉一高校因土地纠纷遭200吨渣土堵门</a></li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="tvhot">
+			<img src="/images/static/hottv.png">
+			<ul>
+				<li class="t0"><a href="/cctv/cctv1.html" title="CCTV-1 综合"
+					target="_blank">CCTV-1 综合</a></li>
+				<li class="t0"><a href="/cctv/cctv2.html" title="CCTV-2 财经"
+					target="_blank">CCTV-2 财经</a></li>
+				<li class="t0"><a href="/cctv/cctv3.html" title="CCTV-3 综艺"
+					target="_blank">CCTV-3 综艺</a></li>
+				<li class="t0"><a href="/cctv/cctv5.html" title="CCTV-5 体育"
+					target="_blank">CCTV-5 体育</a></li>
+				<li class="t0"><a href="/cctv/cctv6.html" title="CCTV-6 电影"
+					target="_blank">CCTV-6 电影</a></li>
+				<li class="t0"><a href="/cctv/cctv10.html" title="CCTV-10 科教"
+					target="_blank">CCTV-10 科教</a></li>
+				<li class="t0"><a href="/cctv/cctv13.html" title="CCTV-13 新闻"
+					target="_blank">CCTV-13 新闻</a></li>
+				<li class="t0"><a href="/cctv/cctv15.html" title="CCTV-15 音乐"
+					target="_blank">CCTV-15 音乐</a></li>
+				<li class="tt"><a href="/weishi/hunan.html" title="湖南卫视"
+					target="_blank">湖南卫视</a></li>
+				<li class="t1"><a href="/weishi/jiangsu.html" title="江苏卫视"
+					target="_blank">江苏卫视</a></li>
+				<li class="t2"><a href="/weishi/zhejiang.html" title="浙江卫视"
+					target="_blank">浙江卫视</a></li>
+				<li class="t3"><a href="/weishi/anhui.html" title="安徽卫视"
+					target="_blank">安徽卫视</a></li>
+				<li class="t4"><a href="/weishi/beijing.html" title="北京卫视"
+					target="_blank">北京卫视</a></li>
+				<li class="t5"><a href="/weishi/shenzhen.html" title="深圳卫视"
+					target="_blank">深圳卫视</a></li>
+				<li class="t6"><a href="/weishi/shanghai.html" title="东方卫视"
+					target="_blank">东方卫视</a></li>
+				<li class="t7"><a href="/weishi/liaoning.html" title="辽宁卫视"
+					target="_blank">辽宁卫视</a></li>
+				<li class="t8"><a href="/weishi/tianjin.html" title="天津卫视"
+					target="_blank">天津卫视</a></li>
+				<li class="t9"><a href="/weishi/shandong.html" title="山东卫视"
+					target="_blank">山东卫视</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!-- Slider hot moretv END-->
+	<div class="zixun">
+		<div class="zxleft">
+			<div class="zx1">
+				<div class="lb">
+					<ul>
+						<li class="l">社会新闻</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/shxw/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<div class="x">
+					<ul class="zxnew">
+						<li><a title="双胞胎姐妹为争男朋友拔刀相向" href="/zixun/shxw/3391.html"
+							target="_blank">双胞胎姐妹为争男朋友拔刀相向</a></li>
+						<li><a title="男子1天打400个电话接通就喊爸妈骗近千万"
+							href="/zixun/shxw/3138.html" target="_blank">男子1天打400个电话接通就喊爸妈骗近千万</a></li>
+						<li><a title="命丧太原派出所农妇死因查明民警涉故意伤害罪"
+							href="/zixun/shxw/3137.html" target="_blank">命丧太原派出所农妇死因查明民警涉故意伤害罪</a></li>
+						<li><a title="军训学生跪舔厕所校方称学生恶搞" href="/zixun/shxw/2448.html"
+							target="_blank">军训学生跪舔厕所校方称学生恶搞</a></li>
+						<li><a title="2015高速免费通行时间共计20天" href="/zixun/shxw/2447.html"
+							target="_blank">2015高速免费通行时间共计20天</a></li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="zx2">
+				<div class="lb">
+					<ul>
+						<li class="l">娱乐明星</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/ylmx/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<ul class="zxnew">
+					<li><a title="刘诗诗照片被诈骗集团盗用敲诈开价3000块"
+						href="/zixun/ylmx/2530.html" target="_blank">刘诗诗照片被诈骗集团盗用敲诈开价3000块</a></li>
+					<li><a title="知情人默认章子怡求婚宴闹剧" href="/zixun/ylmx/4259.html"
+						target="_blank">知情人默认章子怡求婚宴闹剧</a></li>
+					<li><a title="三度挂帅哈文版春晚还能导出啥新意" href="/zixun/ylmx/3596.html"
+						target="_blank">三度挂帅哈文版春晚还能导出啥新意</a></li>
+					<li><a title="女子拥有中国第一美臀" href="/zixun/ylmx/3494.html"
+						target="_blank">女子拥有中国第一美臀</a></li>
+					<li><a title="SM公司已起诉鹿晗擅自开展商业活动" href="/zixun/ylmx/3456.html"
+						target="_blank">SM公司已起诉鹿晗擅自开展商业活动</a></li>
+
+				</ul>
+			</div>
+			<div class="zx1">
+				<div class="lb">
+					<ul>
+						<li class="l">科技前沿</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/kjqy/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<div class="x">
+					<ul class="zxnew">
+						<li><a title="苹果正筹划以另一种方式做网络电视服务"
+							href="/zixun/kjqy/3506.html" target="_blank">苹果正筹划以另一种方式做网络电视服务</a></li>
+						<li><a title="太阳能飞机如何在黑夜中还可以飞行" href="/zixun/kjqy/1916.html"
+							target="_blank">太阳能飞机如何在黑夜中还可以飞行</a></li>
+						<li><a title="为什么要做国产操作系统" href="/zixun/kjqy/1908.html"
+							target="_blank">为什么要做国产操作系统</a></li>
+						<li><a title="手机里的“电子罗盘”工作原理是什么" href="/zixun/kjqy/1902.html"
+							target="_blank">手机里的“电子罗盘”工作原理是什么</a></li>
+						<li><a title="小米科技12.66亿元入股美的集团" href="/zixun/kjqy/1893.html"
+							target="_blank">小米科技12.66亿元入股美的集团</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="zx2">
+				<div class="lb">
+					<ul>
+						<li class="l">奇闻趣事</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/qwqs/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<ul class="zxnew">
+					<li><a title="惊讶！23岁小伙胸部发育如少女" href="/zixun/qwqs/2481.html"
+						target="_blank">惊讶！23岁小伙胸部发育如少女</a></li>
+					<li><a title="巨型“大叔脸”出现在日本上空" href="/zixun/qwqs/2105.html"
+						target="_blank">巨型“大叔脸”出现在日本上空</a></li>
+					<li><a title="机器人“付费搭乘”民航班机 引众人围观"
+						href="/zixun/qwqs/2106.html" target="_blank">机器人“付费搭乘”民航班机
+							引众人围观</a></li>
+					<li><a title="俄罗斯发现一奇石 含有3万颗小钻石" href="/zixun/qwqs/2104.html"
+						target="_blank">俄罗斯发现一奇石 含有3万颗小钻石</a></li>
+					<li><a title="外星人劫车事件" href="/zixun/qwqs/1979.html"
+						target="_blank">外星人劫车事件</a></li>
+
+				</ul>
+			</div>
+			<div class="zx1">
+				<div class="lb">
+					<ul>
+						<li class="l">军情解码</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/jqjm/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<div class="x">
+					<ul class="zxnew">
+						<li><a title="中国制造低调武装全球警察 美欧等国是主要买"
+							href="/zixun/jqjm/2109.html" target="_blank">中国制造低调武装全球警察
+								美欧等国是主要买</a></li>
+						<li><a title="美媒：解放军太强大 菲越扩军只是象征性抵抗"
+							href="/zixun/jqjm/2108.html" target="_blank">美媒：解放军太强大
+								菲越扩军只是象征性抵抗</a></li>
+						<li><a title="美媒称中国再射东风41 专家:将使美核威胁失效"
+							href="/zixun/jqjm/2107.html" target="_blank">美媒称中国再射东风41
+								专家:将使美核威胁失效</a></li>
+						<li><a title="朝鲜一年后将拥有20枚核弹头" href="/zixun/jqjm/1966.html"
+							target="_blank">朝鲜一年后将拥有20枚核弹头</a></li>
+						<li><a title="菲律宾“南海仲裁”最后期限已过 如意算盘落"
+							href="/zixun/jqjm/1965.html" target="_blank">菲律宾“南海仲裁”最后期限已过
+								如意算盘落</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="zx2">
+				<div class="lb">
+					<ul>
+						<li class="l">历史轶事</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/lsys/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<ul class="zxnew">
+					<li><a title="日本人当年是怎样摸底中国的？" href="/zixun/lsys/3173.html"
+						target="_blank">日本人当年是怎样摸底中国的？</a></li>
+					<li><a title="唐太宗李世民亲理冤案" href="/zixun/lsys/1952.html"
+						target="_blank">唐太宗李世民亲理冤案</a></li>
+					<li><a title="管仲用茅草换黄金" href="/zixun/lsys/2112.html"
+						target="_blank">管仲用茅草换黄金</a></li>
+					<li><a title="“百胜将军”尔朱荣的完败人生" href="/zixun/lsys/2111.html"
+						target="_blank">“百胜将军”尔朱荣的完败人生</a></li>
+					<li><a title="刘邦选才不愧能成为帝王" href="/zixun/lsys/2110.html"
+						target="_blank">刘邦选才不愧能成为帝王</a></li>
+
+				</ul>
+			</div>
+			<div class="zx1">
+				<div class="lb">
+					<ul>
+						<li class="l">自然探索</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/zrts/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<div class="x">
+					<ul class="zxnew">
+						<li><a title="科学家认为核能是最环保的能源之一" href="/zixun/zrts/2329.html"
+							target="_blank">科学家认为核能是最环保的能源之一</a></li>
+						<li><a title="研究显示：全球每年200多万人死于空气污染"
+							href="/zixun/zrts/2115.html" target="_blank">研究显示：全球每年200多万人死于空气污染</a></li>
+						<li><a title="德国极端天气致蚊子成灾 部分地区遮天蔽日"
+							href="/zixun/zrts/2114.html" target="_blank">德国极端天气致蚊子成灾
+								部分地区遮天蔽日</a></li>
+						<li><a title="新发现:磁铁矿电子开关速度可达万亿分之一秒"
+							href="/zixun/zrts/2113.html" target="_blank">新发现:磁铁矿电子开关速度可达万亿分之一秒</a></li>
+						<li><a title="伽马射线暴或曾经导致生物大灭绝事件" href="/zixun/zrts/1870.html"
+							target="_blank">伽马射线暴或曾经导致生物大灭绝事件</a></li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="zx2">
+				<div class="lb">
+					<ul>
+						<li class="l">生活杂谈</li>
+						<li class="c"></li>
+						<li class="zxmore"><a href="/zixun/shzt/list_1.html"
+							target="_blank">更多&gt;&gt;</a></li>
+					</ul>
+				</div>
+				<ul class="zxnew">
+					<li><a title="男女都走不出不了“27岁定律”，说得太有道理"
+						href="/zixun/shzt/4436.html" target="_blank">男女都走不出不了“27岁定律”，说得太有道理</a></li>
+					<li><a title="中国绝版老香烟，见过其中一样就证明你老"
+						href="/zixun/shzt/4430.html" target="_blank">中国绝版老香烟，见过其中一样就证明你老</a></li>
+					<li><a title="看看杜蕾斯是怎么借势打广告的，真是服了"
+						href="/zixun/shzt/2390.html" target="_blank">看看杜蕾斯是怎么借势打广告的，真是服了</a></li>
+					<li><a title="新郎婚前变卦新娘拍婚纱照宣泄不满" href="/zixun/shzt/2332.html"
+						target="_blank">新郎婚前变卦新娘拍婚纱照宣泄不满</a></li>
+					<li><a title="低端手机市场变天：大品牌全都杀进来了" href="/zixun/shzt/2118.html"
+						target="_blank">低端手机市场变天：大品牌全都杀进来了</a></li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="zxright">
+			<div class="index-yyad">
+				<script type="text/javascript">
+					var cpro_id = "u2340250";
+					(window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id] = {
+						at : "3",
+						rsi0 : "300",
+						rsi1 : "250",
+						pat : "17",
+						tn : "baiduCustNativeAD",
+						rss1 : "#FFFFFF",
+						conBW : "1",
+						adp : "1",
+						ptt : "0",
+						titFF : "",
+						titFS : "14",
+						rss2 : "#000000",
+						titSU : "0"
+					}
+				</script>
+				<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+					type="text/javascript"></script>
+				<div id="BAIDU_DUP_wrapper_u2340250_0">
+					<div
+						style="margin: 0 auto; width: 300px; height: 250px; position: relative;">
+						<iframe id="cproIframe_u2340250_2" width="300" height="250"
+							src="http://pos.baidu.com/acom?adn=3&amp;adp=1&amp;at=0&amp;aurl=&amp;c01=1&amp;cad=1&amp;ccd=24&amp;cec=UTF-8&amp;cfv=0&amp;ch=0&amp;col=zh-CN&amp;conBW=1&amp;conOP=1&amp;cpa=1&amp;cpro_lu=1%2C%23dfe4f9%2C%23000000%2C%E5%AE%8B%E4%BD%93&amp;dai=2&amp;dis=0&amp;layout_filter=image&amp;ltr=&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;lu_161=0&amp;lunum=6&amp;n=51tao_cpr&amp;pat=17&amp;pcs=1903x935&amp;pis=10000x10000&amp;ps=751x1151&amp;psr=1920x1080&amp;pss=1903x1411&amp;ptt=0&amp;qn=d3a60c646aab9db3&amp;rad=&amp;rsi0=300&amp;rsi1=250&amp;rsi5=4&amp;rss0=%23FFFFFF&amp;rss1=%23FFFFFF&amp;rss2=%23000000&amp;rss3=%23444444&amp;rss4=%23008000&amp;rss5=&amp;rss6=%23e10900&amp;rss7=&amp;scale=&amp;skin=tabcloud_skin_5&amp;stid=5&amp;td_id=2340250&amp;titFF=%E5%AE%8B%E4%BD%93&amp;titFS=14&amp;titSU=0&amp;titTA=left&amp;tn=baiduCustNativeAD&amp;tpr=1444399944336&amp;ts=1&amp;version=2.0&amp;xuanting=0&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dc=2&amp;di=u2340250&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;tt=1444399944232.638.814.814"
+							align="center,center" marginwidth="0" marginheight="0"
+							scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+					</div>
+				</div>
+				<script charset="utf-8"
+					src="http://pos.baidu.com/acom?di=u2340250&amp;dcb=BAIDU_DUP2_define&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dbv=2&amp;dci=0&amp;dri=0&amp;dis=0&amp;dai=2&amp;dds=&amp;drs=1&amp;dvi=1442890359&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;liu=&amp;ltr=&amp;lcr=&amp;ps=751x1151&amp;psr=1920x1080&amp;par=1920x1040&amp;pcs=1903x935&amp;pss=1903x1411&amp;pis=-1x-1&amp;cfv=0&amp;ccd=24&amp;chi=1&amp;cja=true&amp;cpl=5&amp;cmi=7&amp;cce=true&amp;col=zh-CN&amp;cec=UTF-8&amp;cdo=-1&amp;tsr=630&amp;tlm=1444115970&amp;tcn=1444399945&amp;tpr=1444399944336&amp;dpt=none&amp;coa=at%3D3%26rsi0%3D300%26rsi1%3D250%26pat%3D17%26tn%3DbaiduCustNativeAD%26rss1%3D%2523FFFFFF%26conBW%3D1%26adp%3D1%26ptt%3D0%26titFF%3D%26titFS%3D14%26rss2%3D%2523000000%26titSU%3D0%26c01%3D1&amp;dpr=1&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;baidu_id="></script>
+			</div>
+			<div class="tjvideo">
+				<img src="/images/static/tjvideo.png">
+				<ul>
+					<li><a href="/video/gaoxiao/4843.html" target="_blank"
+						title="最狗血的盗墓"><img
+							src="/uploads/allimg/151002/5-1510021I6430-L.jpg" width="140"
+							height="80" alt="最狗血的盗墓"></a></li>
+					<li><a href="/video/gaoxiao/4840.html" target="_blank"
+						title="最无节操的护士"><img
+							src="/uploads/allimg/151002/5-1510021I0220-L.jpg" width="140"
+							height="80" alt="最无节操的护士"></a></li>
+					<li><a href="/video/gaoxiao/4836.html" target="_blank"
+						title="最无节操的女侠"><img
+							src="/uploads/allimg/151002/5-1510021H1520-L.jpg" width="140"
+							height="80" alt="最无节操的女侠"></a></li>
+					<li><a href="/video/gaoxiao/4835.html" target="_blank"
+						title="最要命的情人"><img
+							src="/uploads/allimg/151002/5-1510021H0100-L.jpg" width="140"
+							height="80" alt="最要命的情人"></a></li>
+					<li><a href="/video/gaoxiao/4834.html" target="_blank"
+						title="最忠贞的人妻"><img
+							src="/uploads/allimg/151002/5-1510021GP60-L.jpg" width="140"
+							height="80" alt="最忠贞的人妻"></a></li>
+					<li><a href="/video/gaoxiao/4829.html" target="_blank"
+						title="伤不起的国庆小长假"><img
+							src="/uploads/allimg/151002/5-1510021646350-L.jpg" width="140"
+							height="80" alt="伤不起的国庆小长假"></a></li>
+					<li><a href="/video/gaoxiao/4827.html" target="_blank"
+						title="恶搞西游记之西游美味唐"><img
+							src="/uploads/allimg/151002/5-1510021629220-L.jpg" width="140"
+							height="80" alt="恶搞西游记之西游美味唐"></a></li>
+					<li><a href="/video/gaoxiao/4826.html" target="_blank"
+						title="杀姐姐疯了的真正原因"><img
+							src="/uploads/allimg/151002/5-1510021623220-L.jpg" width="140"
+							height="80" alt="杀姐姐疯了的真正原因"></a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="index-ad2">
+		<script type="text/javascript">
+			var cpro_id = "u1327028";
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+			type="text/javascript"></script>
+		<div id="BAIDU_DUP_wrapper_u1327028_0">
+			<div
+				style="margin: 0 auto; width: 960px; height: 90px; position: relative;">
+				<iframe id="cproIframe_u1327028_3" width="960" height="90"
+					src="http://pos.baidu.com/acom?adn=4&amp;at=6&amp;aurl=&amp;cad=1&amp;ccd=24&amp;cec=UTF-8&amp;cfv=0&amp;ch=0&amp;col=zh-CN&amp;conOP=0&amp;cpa=1&amp;dai=3&amp;dis=0&amp;ltr=&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;lunum=6&amp;n=51tao_cpr&amp;pcs=1903x935&amp;pis=10000x10000&amp;ps=1426x451&amp;psr=1920x1080&amp;pss=1903x1426&amp;qn=5e17f018d148e6af&amp;rad=&amp;rsi0=960&amp;rsi1=90&amp;rsi5=4&amp;rss0=%23FFFFFF&amp;rss1=%23FFFFFF&amp;rss2=%230000FF&amp;rss3=%23444444&amp;rss4=%23008000&amp;rss5=&amp;rss6=%23e10900&amp;rss7=&amp;scale=&amp;skin=&amp;td_id=1327028&amp;tn=text_default_960_90&amp;tpr=1444399944336&amp;ts=1&amp;version=2.0&amp;xuanting=0&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dc=2&amp;di=u1327028&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;tt=1444399944232.820.1144.1144"
+					align="center,center" marginwidth="0" marginheight="0"
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+			</div>
+		</div>
+		<script charset="utf-8"
+			src="http://pos.baidu.com/acom?di=u1327028&amp;dcb=BAIDU_DUP2_define&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dbv=2&amp;dci=0&amp;dri=0&amp;dis=0&amp;dai=3&amp;dds=&amp;drs=1&amp;dvi=1442890359&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;liu=&amp;ltr=&amp;lcr=&amp;ps=1426x451&amp;psr=1920x1080&amp;par=1920x1040&amp;pcs=1903x935&amp;pss=1903x1426&amp;pis=-1x-1&amp;cfv=0&amp;ccd=24&amp;chi=1&amp;cja=true&amp;cpl=5&amp;cmi=7&amp;cce=true&amp;col=zh-CN&amp;cec=UTF-8&amp;cdo=-1&amp;tsr=811&amp;tlm=1444115970&amp;tcn=1444399945&amp;tpr=1444399944336&amp;dpt=none&amp;coa=&amp;dpr=1&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;baidu_id="></script>
+	</div>
+	<!-- zixun END -->
+	<div class="tp">
+		<div class="tptop">
+			<div class="tp1">美女图片</div>
+			<div class="tpspnav">
+				<a title="校花" href="/meitu/xiaohua/list_1.html">校花</a> | <a
+					title="明星" href="/meitu/mingxing/list_1.html">明星</a> | <a
+					title="模特" href="/meitu/mote/list_1.html">模特</a> | <a title="清纯"
+					href="/meitu/qingchun/list_1.html">清纯</a> | <a title="大胸"
+					href="/meitu/daxiong/list_1.html">大胸</a> | <a title="翘臀"
+					href="/meitu/qiaotun/list_1.html">翘臀</a> | <a title="比基尼"
+					href="/meitu/bijini/list_1.html">比基尼</a> | <a title="床照"
+					href="/meitu/chuangzhao/list_1.html">床照</a> | <a title="车模"
+					href="/meitu/chemo/list_1.html">车模</a> | <a title="街拍"
+					href="/meitu/jiepai/list_1.html">街拍</a> | <a title="诱惑"
+					href="/meitu/youhuo/list_1.html">诱惑</a> | <a title="丝袜"
+					href="/meitu/siwa/list_1.html">丝袜</a> | <a title="制服"
+					href="/meitu/zhifu/list_1.html">制服</a> | <a title="AV女优"
+					href="/meitu/avnvyou/list_1.html">AV女优</a>
+			</div>
+		</div>
+		<div class="tpcon">
+			<div>
+				<a href="/meitu/youhuo/3335.html" target="_blank" title="宅男专属"><img
+					src="/uploads/allimg/150204/3-150204161J10-L.jpg" alt="宅男专属"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/qingchun/3334.html" target="_blank" title="汀汀写真"><img
+					src="/uploads/allimg/150204/3-1502041615390-L.jpg" alt="汀汀写真"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/chuangzhao/3333.html" target="_blank" title="性感睡衣"><img
+					src="/uploads/allimg/150204/3-1502041613560-L.jpg" alt="性感睡衣"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/qingchun/3332.html" target="_blank" title="兔女郎的诱惑"><img
+					src="/uploads/allimg/150204/3-1502041611020-L.jpg" alt="兔女郎的诱惑"
+					width="180" height="270"></a>
+			</div>
+			<div id="tp25">
+				<a href="/meitu/qingchun/3331.html" target="_blank" title="念如娇"><img
+					src="/uploads/allimg/150204/3-150204160S80-L.jpg" alt="念如娇"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/bijini/3330.html" target="_blank" title="当你不在我身边"><img
+					src="/uploads/allimg/150204/3-1502041604590-L.jpg" alt="当你不在我身边"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/bijini/3329.html" target="_blank" title="夏日清凉美女"><img
+					src="/uploads/allimg/150204/3-1502041602220-L.jpg" alt="夏日清凉美女"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/daxiong/3328.html" target="_blank" title="留念蜜胸写真"><img
+					src="/uploads/allimg/150204/3-150204155T30-L.jpg" alt="留念蜜胸写真"
+					width="180" height="270"></a>
+			</div>
+			<div>
+				<a href="/meitu/youhuo/3327.html" target="_blank" title="球桌上的性感"><img
+					src="/uploads/allimg/150204/3-1502041555530-L.jpg" alt="球桌上的性感"
+					width="180" height="270"></a>
+			</div>
+			<div id="tp25">
+				<a href="/meitu/youhuo/3326.html" target="_blank" title="瑞呐呐浴室诱惑"><img
+					src="/uploads/allimg/150204/3-1502041553260-L.jpg" alt="瑞呐呐浴室诱惑"
+					width="180" height="270"></a>
+			</div>
+
+		</div>
+	</div>
+	<div class="index-ad3">
+		<script type="text/javascript">
+			var cpro_id = "u1615999";
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+			type="text/javascript"></script>
+		<div id="BAIDU_DUP_wrapper_u1615999_0">
+			<div
+				style="margin: 0 auto; width: 960px; height: 90px; position: relative;">
+				<iframe id="cproIframe_u1615999_4" width="960" height="90"
+					src="http://pos.baidu.com/acom?adn=4&amp;at=6&amp;aurl=&amp;cad=1&amp;ccd=24&amp;cec=UTF-8&amp;cfv=0&amp;ch=0&amp;col=zh-CN&amp;conOP=0&amp;cpa=1&amp;dai=4&amp;dis=0&amp;ltr=&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;lunum=6&amp;n=51tao_cpr&amp;pcs=1903x935&amp;pis=10000x10000&amp;ps=2161x451&amp;psr=1920x1080&amp;pss=1903x2161&amp;qn=357960e7b9ae99d5&amp;rad=&amp;rsi0=960&amp;rsi1=90&amp;rsi5=4&amp;rss0=%23FFFFFF&amp;rss1=%23FFFFFF&amp;rss2=%230000FF&amp;rss3=%23444444&amp;rss4=%23008000&amp;rss5=&amp;rss6=%23e10900&amp;rss7=&amp;scale=&amp;skin=&amp;td_id=1615999&amp;tn=text_default_960_90&amp;tpr=1444399944336&amp;ts=1&amp;version=2.0&amp;xuanting=0&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dc=2&amp;di=u1615999&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;tt=1444399944232.1167.1601.1601"
+					align="center,center" marginwidth="0" marginheight="0"
+					scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+			</div>
+		</div>
+		<script charset="utf-8"
+			src="http://pos.baidu.com/acom?di=u1615999&amp;dcb=BAIDU_DUP2_define&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dbv=2&amp;dci=0&amp;dri=0&amp;dis=0&amp;dai=4&amp;dds=&amp;drs=1&amp;dvi=1442890359&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;liu=&amp;ltr=&amp;lcr=&amp;ps=2161x451&amp;psr=1920x1080&amp;par=1920x1040&amp;pcs=1903x935&amp;pss=1903x2161&amp;pis=-1x-1&amp;cfv=0&amp;ccd=24&amp;chi=1&amp;cja=true&amp;cpl=5&amp;cmi=7&amp;cce=true&amp;col=zh-CN&amp;cec=UTF-8&amp;cdo=-1&amp;tsr=1159&amp;tlm=1444115970&amp;tcn=1444399945&amp;tpr=1444399944336&amp;dpt=none&amp;coa=&amp;dpr=1&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;baidu_id="></script>
+	</div>
+	<!-- pic END -->
+	<div class="sp">
+		<div class="sptop">
+			<div class="sp1">娱乐视频</div>
+			<div class="tpspnav">
+				<a title="美女" href="/video/meinv/list_1.html">美女</a> | <a title="八卦"
+					href="/video/bagua/list_1.html">八卦</a> | <a title="猥琐"
+					href="/video/weisuo/list_1.html">猥琐</a> | <a title="搞笑"
+					href="/video/gaoxiao/list_1.html">搞笑</a> | <a title="动物"
+					href="/video/dongwu/list_1.html">动物</a> | <a title="牛人"
+					href="/video/niuren/list_1.html">牛人</a> | <a title="汽车"
+					href="/video/qiche/list_1.html">汽车</a> | <a title="足球"
+					href="/video/zuqiu/list_1.html">足球</a> | <a title="篮球"
+					href="/video/lanqiu/list_1.html">篮球</a> | <a title="台球"
+					href="/video/taiqiu/list_1.html">台球</a> | <a title="小品"
+					href="/video/xiaopin/list_1.html">小品</a> | <a title="相声"
+					href="/video/xiangsheng/list_1.html">相声</a> | <a title="趣事"
+					href="/video/qushi/list_1.html">趣事</a> | <a title="资讯"
+					href="/video/zixun/list_1.html">资讯</a>
+			</div>
+		</div>
+		<div class="spcon">
+			<div>
+				<a href="/video/bagua/4850.html" target="_blank"
+					title="李晨范冰冰甜蜜游日本 牵手逛街范爷秒变小女人"><img
+					src="/uploads/allimg/151005/5-1510051Q6350-L.jpg"
+					alt="李晨范冰冰甜蜜游日本 牵手逛街范爷秒变小女人" width="180" height="110"></a><span><a
+					href="/video/bagua/4850.html">李晨范冰冰甜蜜游日本 牵手逛街范爷秒变小女人</a></span><span
+					class="sptime">01:10</span>
+			</div>
+			<div>
+				<a href="/video/bagua/4849.html" target="_blank"
+					title="吴奇隆与刘诗诗同游意大利 倚靠牵手羡煞旁人"><img
+					src="/uploads/allimg/151005/5-1510051Q3320-L.jpg"
+					alt="吴奇隆与刘诗诗同游意大利 倚靠牵手羡煞旁人" width="180" height="110"></a><span><a
+					href="/video/bagua/4849.html">吴奇隆与刘诗诗同游意大利 倚靠牵手羡煞旁人</a></span><span
+					class="sptime">01:02</span>
+			</div>
+			<div>
+				<a href="/video/bagua/4848.html" target="_blank"
+					title="范冰冰遗失证件 被曝情侣隐私"><img
+					src="/uploads/allimg/151005/5-1510051Q0430-L.jpg"
+					alt="范冰冰遗失证件 被曝情侣隐私" width="180" height="110"></a><span><a
+					href="/video/bagua/4848.html">范冰冰遗失证件 被曝情侣隐私</a></span><span
+					class="sptime">00:58</span>
+			</div>
+			<div>
+				<a href="/video/zuqiu/4847.html" target="_blank"
+					title="英超-桑切斯两球厄齐尔传射 阿森纳3-0胜曼联"><img
+					src="/uploads/allimg/151005/5-1510051P5430-L.jpg"
+					alt="英超-桑切斯两球厄齐尔传射 阿森纳3-0胜曼联" width="180" height="110"></a><span><a
+					href="/video/zuqiu/4847.html">英超-桑切斯两球厄齐尔传射 阿森纳3-0胜曼联</a></span><span
+					class="sptime">12:41</span>
+			</div>
+			<div id="tp25">
+				<a href="/video/qushi/4845.html" target="_blank"
+					title="开学男生做错一步成备胎 新开学怎么追女生"><img
+					src="/uploads/allimg/151005/5-1510051P0100-L.jpg"
+					alt="开学男生做错一步成备胎 新开学怎么追女生" width="180" height="110"></a><span><a
+					href="/video/qushi/4845.html">开学男生做错一步成备胎 新开学怎么追女生</a></span><span
+					class="sptime">08:47</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4844.html" target="_blank" title="最呆萌花千骨"><img
+					src="/uploads/allimg/151002/5-1510021IT00-L.jpg" alt="最呆萌花千骨"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4844.html">最呆萌花千骨</a></span><span class="sptime">13:39</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4843.html" target="_blank" title="最狗血的盗墓"><img
+					src="/uploads/allimg/151002/5-1510021I6430-L.jpg" alt="最狗血的盗墓"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4843.html">最狗血的盗墓</a></span><span class="sptime">14:49</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4842.html" target="_blank" title="女神非常渴"><img
+					src="/uploads/allimg/151002/5-1510021I4580-L.jpg" alt="女神非常渴"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4842.html">女神非常渴</a></span><span class="sptime">13:28</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4841.html" target="_blank" title="最狗血的噩梦"><img
+					src="/uploads/allimg/151002/5-1510021I3070-L.jpg" alt="最狗血的噩梦"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4841.html">最狗血的噩梦</a></span><span class="sptime">15:46</span>
+			</div>
+			<div id="tp25">
+				<a href="/video/gaoxiao/4840.html" target="_blank" title="最无节操的护士"><img
+					src="/uploads/allimg/151002/5-1510021I0220-L.jpg" alt="最无节操的护士"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4840.html">最无节操的护士</a></span><span class="sptime">16:53</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4839.html" target="_blank" title="平胸妹的传奇"><img
+					src="/uploads/allimg/151002/5-1510021HQ00-L.jpg" alt="平胸妹的传奇"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4839.html">平胸妹的传奇</a></span><span class="sptime">14:23</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4838.html" target="_blank" title="最诱惑的黑丝妹"><img
+					src="/uploads/allimg/151002/5-1510021H5510-L.jpg" alt="最诱惑的黑丝妹"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4838.html">最诱惑的黑丝妹</a></span><span class="sptime">14:07</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4837.html" target="_blank" title="别睡我女人"><img
+					src="/uploads/allimg/151002/5-1510021H3550-L.jpg" alt="别睡我女人"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4837.html">别睡我女人</a></span><span class="sptime">12:00</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4836.html" target="_blank" title="最无节操的女侠"><img
+					src="/uploads/allimg/151002/5-1510021H1520-L.jpg" alt="最无节操的女侠"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4836.html">最无节操的女侠</a></span><span class="sptime">13:29</span>
+			</div>
+			<div id="tp25">
+				<a href="/video/gaoxiao/4835.html" target="_blank" title="最要命的情人"><img
+					src="/uploads/allimg/151002/5-1510021H0100-L.jpg" alt="最要命的情人"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4835.html">最要命的情人</a></span><span class="sptime">14:44</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4834.html" target="_blank" title="最忠贞的人妻"><img
+					src="/uploads/allimg/151002/5-1510021GP60-L.jpg" alt="最忠贞的人妻"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4834.html">最忠贞的人妻</a></span><span class="sptime">12:14</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4833.html" target="_blank" title="最开放的女神"><img
+					src="/uploads/allimg/151002/5-1510021G6000-L.jpg" alt="最开放的女神"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4833.html">最开放的女神</a></span><span class="sptime">17:53</span>
+			</div>
+			<div>
+				<a href="/video/gaoxiao/4832.html" target="_blank" title="最诱惑的泳装妹"><img
+					src="/uploads/allimg/151002/5-1510021G1320-L.jpg" alt="最诱惑的泳装妹"
+					width="180" height="110"></a><span><a
+					href="/video/gaoxiao/4832.html">最诱惑的泳装妹</a></span><span class="sptime">12:19</span>
+			</div>
+			<div>
+				<a href="/video/zixun/4831.html" target="_blank"
+					title="女子患癌觉得时日不多 挥霍40万后发现病情稳定"><img
+					src="/uploads/allimg/151002/5-1510021F0100-L.jpg"
+					alt="女子患癌觉得时日不多 挥霍40万后发现病情稳定" width="180" height="110"></a><span><a
+					href="/video/zixun/4831.html">女子患癌觉得时日不多 挥霍40万后发现病情稳定</a></span><span
+					class="sptime">02:43</span>
+			</div>
+			<div id="tp25">
+				<a href="/video/zixun/4830.html" target="_blank"
+					title="故宫迎客流高峰人潮涌动 2小时抢光8万张门票"><img
+					src="/uploads/allimg/151002/5-1510021A4490-L.jpg"
+					alt="故宫迎客流高峰人潮涌动 2小时抢光8万张门票" width="180" height="110"></a><span><a
+					href="/video/zixun/4830.html">故宫迎客流高峰人潮涌动 2小时抢光8万张门票</a></span><span
+					class="sptime">00:54</span>
+			</div>
+
+		</div>
+	</div>
+	<!-- video END -->
+	<script type="text/javascript">
+		var cpro_id = "u1645408";
+	</script>
+	<script src="http://cpro.baidustatic.com/cpro/ui/f.js"
+		type="text/javascript"></script>
+	<div id="BAIDU_DUP_wrapper_u1645408_0"></div>
+	<script charset="utf-8"
+		src="http://pos.baidu.com/acom?di=u1645408&amp;dcb=BAIDU_DUP2_define&amp;dtm=BAIDU_DUP2_SETJSONADSLOT&amp;dbv=2&amp;dci=0&amp;dri=0&amp;dis=0&amp;dai=5&amp;dds=&amp;drs=1&amp;dvi=1442890359&amp;ltu=http%3A%2F%2Ftv.goodwd.cn%2F&amp;liu=&amp;ltr=&amp;lcr=&amp;ps=2981x0&amp;psr=1920x1080&amp;par=1920x1040&amp;pcs=1903x935&amp;pss=1903x2981&amp;pis=-1x-1&amp;cfv=0&amp;ccd=24&amp;chi=1&amp;cja=true&amp;cpl=5&amp;cmi=7&amp;cce=true&amp;col=zh-CN&amp;cec=UTF-8&amp;cdo=-1&amp;tsr=1689&amp;tlm=1444115970&amp;tcn=1444399946&amp;tpr=1444399944336&amp;dpt=none&amp;coa=&amp;dpr=1&amp;ti=%E7%BD%91%E7%BB%9C%E7%94%B5%E8%A7%86%E7%9B%B4%E6%92%AD_%E5%9B%BD%E5%A4%96%E7%94%B5%E8%A7%86%E5%8F%B0%E7%9B%B4%E6%92%AD_7%E5%A4%A9%E5%86%85%E7%94%B5%E8%A7%86%E5%9B%9E%E7%9C%8B%20-%20good%E7%9B%B4%E6%92%AD&amp;baidu_id="></script>
+	<div class="clearb"></div>
+	<div class="syfooter">
+		<div class="links">
+			友情链接： <a href="http://www.feifanw.com" target="_blank">非凡视频</a> <a
+				href="http://www.baidu.com" target="_blank">百度搜索</a> <a
+				href="http://v.sogou.com" target="_blank">搜狗视频</a> <a
+				href="http://v.baidu.com" target="_blank">百度视频</a> <a
+				href="http://tv.feifanw.com" target="_blank">非凡直播</a> <a
+				href="http://www.ifun365.com" target="_blank">365电影网</a> <a
+				href="http://www.dabali.cn" target="_blank">大巴黎影视</a> <a
+				href="http://tonghuacun.tv" target="_blank">童话村电影网</a> <a
+				href="http://www.woaihanju.com" target="_blank">我爱韩剧网</a>
+		</div>
+		<div class="f1">Copyright © 2014 tv.goodwd.cn good直播版权所有
+			如果您在浏览过程发现不良图片以及任何不良内容欢迎举报，不胜感激！ 晋ICP备13001522号</div>
+		<div class="f1">
+			本站所有内容收集整理于互联网，如有侵权请发送E-mail至admin@goodwd.cn
+			<script cf-hash="f9e31" type="text/javascript">
+				/* <![CDATA[ */!function() {
+					try {
+						var t = "currentScript" in document ? document.currentScript
+								: function() {
+									for (var t = document
+											.getElementsByTagName("script"), e = t.length; e--;)
+										if (t[e].getAttribute("cf-hash"))
+											return t[e]
+								}();
+						if (t && t.previousSibling) {
+							var e, r, n, i, c = t.previousSibling, a = c
+									.getAttribute("data-cfemail");
+							if (a) {
+								for (e = "", r = parseInt(a.substr(0, 2), 16),
+										n = 2; a.length - n; n += 2)
+									i = parseInt(a.substr(n, 2), 16) ^ r,
+											e += String.fromCharCode(i);
+								e = document.createTextNode(e), c.parentNode
+										.replaceChild(e, c)
+							}
+						}
+					} catch (u) {
+					}
+				}();/* ]]> */
+			</script>
+			<script type="text/javascript"
+				src="http://tajs.qq.com/stats?sId=13939219" charset="UTF-8"></script>
+			<script>
+				var _hmt = _hmt || [];
+				(function() {
+					var hm = document.createElement("script");
+					hm.src = "//hm.baidu.com/hm.js?ef286e69b2fc9929a2fc088588654997";
+					var s = document.getElementsByTagName("script")[0];
+					s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+		</div>
+	</div>
+
+	<div id="hm_t_undefined" class="hm-t-container"></div>
+</body>
+</html>

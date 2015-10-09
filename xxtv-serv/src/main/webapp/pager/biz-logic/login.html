@@ -1,45 +1,267 @@
-<#compress>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>红包侠后台管理</title>
-<% include("/pager/common/quote.html"){} %>
-<link type="text/css" href="${base}/assets/common/login/css/common.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>重庆影视频道在线直播</title>
+<meta name="description"
+	content="重庆影视频道在线直播网是每一个喜欢经视新闻、午间360度、大事件、钟山说事、越策越开心的朋友的第一观看的直播室。重庆影视频道在线直播网为大家提供高清的在线直播" />
+<meta name="keywords" content="重庆影视频道在线直播,重庆影视频道,重庆影视在线直播,重庆影视直播" />
+<link href="${base}/assets/biz-logic/css/css.css" rel="stylesheet"
+	media="screen" type="text/css" />
 </head>
-<body  style="overflow:scroll;overflow-y:hidden">
-	<div id="ht_bg">
-		<div class="ht_center_outer">
-			<div class="ht_logo"><img style="text-align:center" src="${base}/assets/common/login/img/ht_logo.png"></div>
-			<div class="ht_form_outer">
-				<form id="loginForm" action="login/loginCheck" method="post" onsubmit="return false;">
-					<div class="username_outer">
-						<input type="text" name="username" maxlength="25" id="username" value="请输入用户名" onfocus="javascript:if(this.value=='请输入用户名')this.value='';" class="username_input" />
-					</div>
-					<div class="password_outer">
-						<input type="password" name="password" maxlength="25" id="password" value="请输入密码" class="username_password" />
-					</div>
-					<div class="submit_outer">
-						<div class="submit_img">
-							<img src="${base}/assets/common/login/img/submit_bg2.png">
-						</div>
-						<div class="submit_btn">
-							<input type="submit" class="submit_input" value="登录" />
-						</div>
-						<div class="reset_btn">
-							<input type="reset" class="reset_input" value="重置" />
-						</div>
-					</div>
-				</form>
+<body>
+	<div class="header">
+		<h1>
+			<a href="http://www.hunanjingshi.com">重庆影视频道在线直播</a>
+		</h1>
+		<div class="nav">
+			<ul>
+				<li><img
+					src="http://www.hunanjingshi.com/templets/jingshi/img/logo.png"
+					alt="重庆影视频道在线直播" height="30" /></li>
+				<li><a href="http://www.hunanjingshi.com" target="_blank">首页</a></li>
+				<li><a href="http://www.hunanjingshi.com/list-1.html"
+					target="_blank">钟山说事</a></li>
+				<li><a href="http://www.hunanjingshi.com/list-12.html"
+					target="_blank">经视问政</a></li>
+				<li><a href="http://www.hunanjingshi.com/list-2.html"
+					target="_blank">夜·宵 </a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main">
+		<div class="bofang">
+			<a style="display: block; width: 640px; height: 478px;" id="player">
+
+
+
+				<!-- <object name="player" id="_fp_0.8167466972954571" width="640"
+					height="478"
+					data="http://www.cbg.cn/swf/mssp.commercial-3.2.16-dev-ad.swf"
+					type="application/x-shockwave-flash">
+					<param value="true" name="allowfullscreen" />
+					<param value="always" name="allowscriptaccess" />
+					<param value="#000000" name="bgcolor" />
+					<param value="high" name="quality" />
+					<param name="movie"
+						value="http://www.cbg.cn/swf/mssp.commercial-3.2.16-dev-ad.swf" />
+					<param
+						value="config=%7B%22custom%22%3A%7B%7D%2C%22logo%22%3A%7B%22right%22%3A10%2C%22url%22%3A%22http%3A//img.cbg.cn/image/logoimg.png%22%2C%22opacity%22%3A0.5%2C%22fullscreenOnly%22%3Afalse%2C%22fadeSpeed%22%3A0%2C%22top%22%3A15%2C%22displayTime%22%3A0%7D%2C%22clip%22%3A%7B%22pageUrl%22%3A%22http%3A//www.cbg.cn/live/%3Fpid%3D6%22%7D%2C%22canvas%22%3A%7B%22borderRadius%22%3A%220%22%2C%22backgroundColor%22%3A%22transparent%22%2C%22backgroundGradient%22%3A%22none%22%2C%22border%22%3A%220px%22%7D%2C%22language%22%3A%22CN%22%2C%22playlist%22%3A%5B%7B%22scaling%22%3A%22orig%22%2C%22url%22%3A%22http%3A//img.cbg.cn/image/screens.png%22%7D%2C%7B%22provider%22%3A%22httpstreaming%22%2C%22urlResolvers%22%3A%5B%22f4m%22%2C%22bitrateselect%22%5D%2C%22scaling%22%3A%22fit%22%2C%22bufferLength%22%3A3%2C%22downloadUrl%22%3A%22http%3A//video.chinadaily.com.cn/2012/1105/359.shtml%22%2C%22autoBuffering%22%3Atrue%2C%22autoPlay%22%3Atrue%2C%22url%22%3A%22http%3A//sjlivecdn.cbg.cn/201510092158/d05153ff1543b65860942f32c4e1bb04/app_2/_definst_/ls_6.stream/manifest.f4m%22%2C%22previewUrl%22%3A%22http%3A//localhost%3A1935/app_2/_definst_/mp4%3Avod/bbb-800.mp4/manifest.f4m%22%2C%22ipadUrl%22%3A%22http%3A//sjlivecdn.cbg.cn/201510092158/d05153ff1543b65860942f32c4e1bb04/app_2/_definst_/ls_6.stream/playlist.m3u8%22%2C%22pageTitle%22%3A%22%5Cu5206%5Cu4eab%5Cu89c6%5Cu9891%22%2C%22pageUrl%22%3A%22http%3A//video.chinadaily.com.cn/2012/1105/359.shtml%22%7D%5D%2C%22plugins%22%3A%7B%22bitrateselect%22%3A%7B%22language%22%3A%22CN%22%2C%22hdButton%22%3A%7B%22place%22%3A%22dock%22%2C%22splash%22%3Afalse%7D%2C%22callType%22%3A%22default%22%7D%2C%22httpstreaming%22%3A%7B%22callType%22%3A%22default%22%7D%2C%22controls%22%3A%7B%22durationColor%22%3A%22%23535353%22%2C%22backgroundGradient%22%3A%22medium%22%2C%22sliderBorder%22%3A%221px%20solid%20%23808080%22%2C%22buttonColor%22%3A%22rgba%280%2C%200%2C%200%2C%200.9%29%22%2C%22volumeBorder%22%3A%221px%20solid%20%23808080%22%2C%22callType%22%3A%22default%22%2C%22buttonOverColor%22%3A%22%23000000%22%2C%22sliderColor%22%3A%22%23FFFFFF%22%2C%22volumeSliderColor%22%3A%22%23FFFFFF%22%2C%22backgroundColor%22%3A%22%23D7D7D7%22%2C%22url%22%3A%22org.flowplayer.controls.Controls%22%2C%22timeColor%22%3A%22%23000000%22%7D%2C%22captions%22%3Afalse%2C%22pauseAd%22%3A%7B%22width%22%3A320%2C%22height%22%3A220%2C%22callType%22%3A%22default%22%2C%22display%22%3A%22none%22%2C%22closeButton%22%3Atrue%2C%22borderRadius%22%3A0%2C%22style%22%3A%7B%22p%22%3A%7B%22fontSize%22%3A16%7D%7D%2C%22html%22%3A%22%3Cdiv%20style%3D%5C%22width%3A300px%3Bheight%3A200px%3Bborder%3Anone%3Bpadding%3A0px%3Bmargin%3A0px%3Boverflow%3Ahidden%3B%5C%22%3E%3Ca%20href%3D%5C%22http%3A//www.cbg.cn%5C%22%20%3E%3Cimg%20src%3D%5C%22http%3A//img.cbg.cn/templates/ad/gbfcyy_ad.jpg%5C%22%20style%3D%5C%22width%3A300px%3Bheight%3A200px%3Bborder%3Anone%3B%5C%22%20%20/%3E%3C/a%3E%3C/div%3E%22%2C%22background%22%3A%22%23000000%22%2C%22padding%22%3A0%2C%22top%22%3A%2250pct%22%2C%22opacity%22%3A1%7D%2C%22ova%22%3A%7B%22ads%22%3A%7B%22pauseOnClickThrough%22%3Afalse%2C%22linearScaling%22%3A%22fit%22%2C%22acceptedLinearAdMimeTypes%22%3A%5B%22video/flv%22%2C%22video/mp4%22%2C%22video/x-flv%22%2C%22video/x-mp4%22%2C%22application/x-shockwave-flash%22%2C%22flv%22%2C%22mp4%22%2C%22swf%22%5D%2C%22setDurationFromMetaData%22%3Atrue%2C%22skipAd%22%3A%7B%22enabled%22%3A%22false%22%7D%2C%22notice%22%3A%7B%22type%22%3A%22countdown%22%2C%22region%22%3A%22my-ad-notice%22%2C%22message%22%3A%22%3Cp%20class%3D%5C%22smalltext%5C%22%20align%3D%5C%22center%5C%22%3E%5Cu5e7f%5Cu544a%5Cu8fd8%5Cu5269%20_countdown_%20%5Cu79d2%3C/p%3E%22%7D%2C%22filterOnLinearAdMimeTypes%22%3Atrue%2C%22schedule%22%3A%5B%7B%22position%22%3A%22pre-roll%22%2C%22server%22%3A%7B%22filterOnLinearAdMimeTypes%22%3Afalse%2C%22acceptedLinearAdMimeTypes%22%3A%5B%22video/flv%22%2C%22video/mp4%22%2C%22video/x-flv%22%2C%22video/x-mp4%22%2C%22application/x-shockwave-flash%22%2C%22flv%22%2C%22mp4%22%2C%22swf%22%5D%2C%22customProperties%22%3A%7B%7D%2C%22oneAdPerRequest%22%3Atrue%2C%22defaultAdServer%22%3Afalse%2C%22allowAdRepetition%22%3Afalse%2C%22type%22%3A%22OAS%22%2C%22template%22%3A%22__api-address__/__sitepage__/__random-number__@__listpos__%3F__target__%22%2C%22allowVPAID%22%3Afalse%2C%22maxDuration%22%3A-1%2C%22asVersion%22%3A%223%22%2C%22ensureSingleAdUnitRecordedPerInlineAd%22%3Atrue%2C%22forceImpressionServing%22%3Afalse%2C%22encodeVars%22%3Afalse%2C%22playerWidth%22%3A-1%2C%22parseWrappedAdTags%22%3Afalse%2C%22id%22%3A%22%22%2C%22serverType%22%3A%22OAS%22%2C%22format%22%3A%22vast1%22%2C%22transformers%22%3A%5B%5D%2C%22apiServerAddress%22%3A%22http%3A//img.cbg.cn/templates/ad/ad.html%3F__amp__%22%2C%22timeoutInSeconds%22%3A-1%2C%22apiAddress%22%3A%22http%3A//img.cbg.cn/templates/ad/ad.html%3F__amp__%22%2C%22playerHeight%22%3A-1%2C%22addCacheBuster%22%3Afalse%7D%2C%22notice%22%3A%7B%22show%22%3Atrue%2C%22region%22%3A%22my-ad-notice%22%2C%22type%22%3A%22COUNTDOWN%22%2C%22textStyle%22%3A%22normaltext%22%2C%22message%22%3A%22%3Cp%20class%3D%5C%22smalltext%5C%22%20align%3D%5C%22center%5C%22%3E%5Cu5e7f%5Cu544a%5Cu8fd8%5Cu5269%20_countdown_%20%5Cu79d2%3C/p%3E%22%7D%2C%22zone%22%3A%22undefined%22%7D%5D%2C%22clickSign%22%3A%7B%22enabled%22%3Atrue%7D%7D%2C%22player%22%3A%7B%22modes%22%3A%7B%22linear%22%3A%7B%22controls%22%3A%7B%22visible%22%3Afalse%7D%7D%7D%2C%22setUrlResolversOnAdClips%22%3Afalse%7D%2C%22autoPlay%22%3Atrue%2C%22url%22%3A%22http%3A//www.cbg.cn/swf/ova-1.1.1.swf%22%2C%22playOnce%22%3Atrue%2C%22debug%22%3A%7B%22levels%22%3A%22none%22%7D%2C%22zIndex%22%3A1%2C%22overlays%22%3A%7B%22regions%22%3A%5B%7B%22backgroundColor%22%3A%22transparent%22%2C%22width%22%3A%22100%22%2C%22horizontalAlign%22%3A%22right%22%2C%22height%22%3A30%2C%22verticalAlign%22%3A%22top%22%2C%22id%22%3A%22my-ad-notice%22%2C%22style%22%3A%22.smalltext%20%7B%20font-style%3A%20italic%3B%20font-size%3A12%3B%20%7D%22%7D%5D%7D%2C%22callType%22%3A%22default%22%7D%2C%22cnshare%22%3A%7B%22language%22%3A%22CN%22%2C%22videoPreview%22%3A%7B%22width%22%3A160%2C%22height%22%3A90%2C%22delay%22%3A1000%7D%2C%22callType%22%3A%22default%22%7D%2C%22viral%22%3A%7B%22related%22%3A%7B%22txtHeight%22%3A20%2C%22hGap%22%3A10%2C%22vGap%22%3A10%2C%22items%22%3A%5B%5D%2C%22thumbWidth%22%3A131%2C%22thumbHeight%22%3A80%7D%2C%22width%22%3A%22100pct%22%2C%22url%22%3A%22org.flowplayer.viralvideos.ViralVideos%22%2C%22canvas%22%3A%7B%22backgroundColor%22%3A%22rgba%280%2C%200%2C%200%2C%200.6%29%22%2C%22backgroundGradient%22%3A%5B0%2C0%2C0%5D%2C%22border%22%3A%221px%20solid%20%23cccccc%22%7D%2C%22language%22%3A%22CN%22%2C%22share%22%3A%7B%22labels%22%3A%7B%22title%22%3A%22%22%2C%22tabTitle%22%3A%22%5Cu5206%5Cu4eab%22%7D%7D%2C%22email%22%3Afalse%2C%22embed%22%3A%7B%22labels%22%3A%7B%22copied%22%3A%22%5Cu5df2%5Cu590d%5Cu5236%5Cu5230%5Cu526a%5Cu8d34%5Cu677f%22%2C%22colorYellowTrt%22%3A%22%5Cu9ec4%5Cu8272%5Cu900f%5Cu660e%22%2C%22tabTitle%22%3A%22%5Cu5d4c%5Cu5165%22%2C%22colorGreenTrt%22%3A%22%5Cu7eff%5Cu8272%5Cu900f%5Cu660e%22%2C%22buttonColor%22%3A%22%5Cu6309%5Cu94ae%5Cu989c%5Cu8272%22%2C%22selectColor%22%3A%22%5Cu9009%5Cu62e9%5Cu989c%5Cu8272%22%2C%22colorWhite%22%3A%22%5Cu767d%5Cu8272%22%2C%22colorRed%22%3A%22%5Cu7ea2%5Cu8272%22%2C%22copy%22%3A%22%5Cu590d%5Cu5236%22%2C%22colorBlack%22%3A%22%5Cu9ed1%5Cu8272%22%2C%22backgroundColor%22%3A%22%5Cu80cc%5Cu666f%5Cu989c%5Cu8272%22%2C%22size%22%3A%22%5Cu5927%5Cu5c0f%22%2C%22title%22%3A%22%5Cu590d%5Cu5236%5Cu5982%5Cu4e0b%5Cu4ee3%5Cu7801%5Cu81f3%5Cu9875%5Cu9762%5Cu4e2d%22%2C%22colorYellow%22%3A%22%5Cu9ec4%5Cu8272%22%2C%22options%22%3A%22%5Cu81ea%5Cu5b9a%5Cu4e49%5Cu5927%5Cu5c0f%5Cu548c%5Cu989c%5Cu8272%22%2C%22colorGreen%22%3A%22%5Cu7eff%5Cu8272%22%2C%22colorBlue%22%3A%22%5Cu84dd%5Cu8272%22%2C%22colorTrt%22%3A%22%5Cu900f%5Cu660e%22%2C%22colorBlueTrt%22%3A%22%5Cu84dd%5Cu8272%5Cu900f%5Cu660e%22%7D%7D%2C%22height%22%3A%22100pct%22%2C%22top%22%3A%2250pct%22%2C%22callType%22%3A%22default%22%7D%2C%22f4m%22%3A%7B%22callType%22%3A%22default%22%7D%2C%22content%22%3A%7B%22display%22%3A%22none%22%2C%22callType%22%3A%22default%22%7D%2C%22rtmp%22%3A%7B%22url%22%3A%22http%3A//www.cbg.cn/swf/mssp.rtmp-3.2.10.swf%22%2C%22callType%22%3A%22default%22%7D%2C%22pseudo%22%3A%7B%22url%22%3A%22http%3A//www.cbg.cn/swf/mssp.pseudostreaming-3.2.9.swf%22%2C%22callType%22%3A%22default%22%7D%7D%2C%22play%22%3A%7B%22replayLabel%22%3A%22%22%7D%7D"
+						name="flashvars" />
+				</object> -->
+				
+				<object class="flashplayer" id="flashplayer" data="/publish/i_www/resource/yidong/flash/FlashHLS.swf?ver=20141016"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><param name="wMode" value="Opaque"><param name="align" value="middle"><param name="bgcolor" value="#000000"> <param name="swLiveConnect" value="true"> <param name="loop" value="true"> <param name="play" value="true"><param name="DeviceFont" value="false"> <param name="allowFullScreen" value="true"> <param name="menu" value="true"> <param name="movie" value="/publish/i_www/resource/yidong/flash/FlashHLS.swf"><param name="flashvars" value="xml=<vcastr><channel></channel><config><playCompleteHandler>playOver</playCompleteHandler><controlpanelbgcolor>52479</controlpanelbgcolor></config></vcastr>"> </object>
+			</a>
+
+
+		</div>
+		<div class="bdgg">
+			<script type="text/javascript">
+				document
+						.write('<a style="display:none!important" id="tanx-a-mm_32961371_6368986_21904061"></a>');
+				tanx_s = document.createElement("script");
+				tanx_s.type = "text/javascript";
+				tanx_s.charset = "gbk";
+				tanx_s.id = "tanx-s-mm_32961371_6368986_21904061";
+				tanx_s.async = true;
+				tanx_s.src = "http://p.tanx.com/ex?i=mm_32961371_6368986_21904061";
+				tanx_h = document.getElementsByTagName("head")[0];
+				if (tanx_h)
+					tanx_h.insertBefore(tanx_s, tanx_h.firstChild);
+			</script>
+		</div>
+		<div class="bdgg">
+			<script type="text/javascript">
+				/*300*250 创建于 2014-09-03*/
+				var cpro_id = "u1697666";
+			</script>
+			<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+				type="text/javascript"></script>
+
+		</div>
+		<div class="clear"></div>
+		<div class="bdgg-d">
+			<script type="text/javascript">
+				/*960*90 创建于 2014-07-29*/
+				var cpro_id = "u1636713";
+			</script>
+			<script src="http://cpro.baidustatic.com/cpro/ui/c.js"
+				type="text/javascript"></script>
+		</div>
+	</div>
+	<div class="content">
+		<div class="side-l">
+			<h3>金牌节目</h3>
+			<div class="jiemu-l">
+				<a href="http://www.hunanjingshi.com/list-2.html" target="_blank"><img
+					src="../templets/jingshi/img/yexiao.jpg" width="245" height="165"
+					alt="钟山说事" /></a>
+				<h2>
+					<a href="http://www.hunanjingshi.com/list-2.html" target="_blank">夜·宵</a>
+				</h2>
+				<p>
+					<b>简介:</b>汪涵带你吃夜宵听故事,在长沙夜上演着千姿百态的风情，有些美食也是在夜间绽放着绚丽，汪涵就为你来一次夜长沙中的星城长沙夜宵美食大搜索。
+				</p>
+			</div>
+			<div class="jiemu-l">
+				<a href="http://www.hunanjingshi.com/list-12.html" target="_blank"><img
+					src="../templets/jingshi/img/dianshiwenzheng.jpg" width="245"
+					height="165" alt="经视问政" /></a>
+				<h2>
+					<a href="http://www.hunanjingshi.com/list-12.html" target="_blank">经视问政</a>
+				</h2>
+				<p>
+					<b>简介:</b>由省委党的群众路线教育实践活动领导小组办公室举办的《电视问政》在重庆影视犀利开问。节目现场群众代表团抛出的每一个问题，都着实让台上的厅长们好好地“出了出汗、红了红脸”，让群众问出了民心,问出了民意。
+				</p>
 			</div>
 		</div>
-	</div>
-	<div id="ht_bottom">
-		<div class="ht_bottom_inner">
-			<p>Copyright © 微赢互动 2014-2015,All Rights Reserved</p>
+		<div class="side-r">
+			<h3>热播节目</h3>
+			<ul>
+				<li><a href="/view-191-1.html" title="2014-02-08方言听写大赛 爆笑个人赛"
+					target="_blank">2014-02-08方言听写大赛 爆笑个人赛</a></li>
+				<li><a href="/view-941-1.html" title="省媒编辑记者到湘潭县开展为期两个月实践锻"
+					target="_blank">省媒编辑记者到湘潭县开展为期两个月实践锻</a></li>
+				<li><a href="/view-1821-1.html" title="完美假期复活赛一触即发 异国夫妇或再续粉"
+					target="_blank">完美假期复活赛一触即发 异国夫妇或再续粉</a></li>
+				<li><a href="/view-1167-1.html" title="建行常德鼎城支行营业部主任刘晚梅：用爱回"
+					target="_blank">建行常德鼎城支行营业部主任刘晚梅：用爱回</a></li>
+				<li><a href="/view-1187-1.html" title="苹果装饰牵手世界500强甲骨文公司 全力打造"
+					target="_blank">苹果装饰牵手世界500强甲骨文公司 全力打造</a></li>
+				<li><a href="/view-1623-1.html" title="最红编剧于正的赚钱攻略"
+					target="_blank">最红编剧于正的赚钱攻略</a></li>
+				<li><a href="/view-1783-1.html" title="王晔＂打败自己＂演反派 《嫂子》成就日本"
+					target="_blank">王晔＂打败自己＂演反派 《嫂子》成就日本</a></li>
+				<li><a href="/view-882-1.html" title="小肥肥真人秀9月6日开播"
+					target="_blank">小肥肥真人秀9月6日开播</a></li>
+				<li><a href="/view-981-1.html" title="《烽火英雄传》将播 于小伟化身抗战英雄"
+					target="_blank">《烽火英雄传》将播 于小伟化身抗战英雄</a></li>
+				<li><a href="/view-991-1.html" title="石峰区政府形象岂可随“中南国际”烂尾而“"
+					target="_blank">石峰区政府形象岂可随“中南国际”烂尾而“</a></li>
+
+			</ul>
+			<h3>热点新闻</h3>
+			<ul>
+				<li><a href="/view-1830-1.html" class="title"
+					title="网传湖南景区“逃票”视频 时髦女郎带娃爬" target="_blank">网传湖南景区“逃票”视频
+						时髦女郎带娃爬</a></li>
+				<li><a href="/view-1829-1.html" class="title"
+					title="网上流传景区逃票视频 时髦女郎带娃爬铁丝" target="_blank">网上流传景区逃票视频
+						时髦女郎带娃爬铁丝</a></li>
+				<li><a href="/view-1828-1.html" class="title"
+					title="三位美女选手惊艳亮相 各型各款福利宅男" target="_blank">三位美女选手惊艳亮相 各型各款福利宅男</a></li>
+				<li><a href="/view-1827-1.html" class="title"
+					title="校花变身游戏狂魔 反差萌许晓诺爆可爱" target="_blank">校花变身游戏狂魔 反差萌许晓诺爆可爱</a></li>
+				<li><a href="/view-1826-1.html" class="title" title="中国农业信息网"
+					target="_blank">中国农业信息网</a></li>
+				<li><a href="/view-1825-1.html" class="title" title="湖南铅弹枪"
+					target="_blank">湖南铅弹枪</a></li>
+				<li><a href="/view-1823-1.html" class="title"
+					title="BIGBANG美拍晒太阳后台视频手舞足蹈显开心" target="_blank">BIGBANG美拍晒太阳后台视频手舞足蹈显开心</a></li>
+				<li><a href="/view-1822-1.html" class="title"
+					title="哈尔滨打鸟汽枪☆☆☆第一品牌☆☆☆官网推" target="_blank">哈尔滨打鸟汽枪☆☆☆第一品牌☆☆☆官网推</a></li>
+				<li><a href="/view-1821-1.html" class="title"
+					title="完美假期复活赛一触即发 异国夫妇或再续粉" target="_blank">完美假期复活赛一触即发
+						异国夫妇或再续粉</a></li>
+				<li><a href="/view-1820-1.html" class="title"
+					title="百变女郎竟是单身汪 郭蕾“假期”寻找爱情" target="_blank">百变女郎竟是单身汪
+						郭蕾“假期”寻找爱情</a></li>
+
+
+			</ul>
+		</div>
+		<div class=" side-z">
+			<ul>
+				<li><a href="http://www.hunanjingshi.com/list-9.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/yueceyuekaixin.jpg" width="115"
+						height="155" /></a>
+					<p>越策越开心</p> <span> <a href="/view-190-1.html"
+						title="2014-02-15方言听写大会情侣专场" target="_blank">2014-02-15方言听写大会情侣专场</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-1.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/zhongshanshuoshi.jpg" width="115"
+						height="155" /></a>
+					<p>钟山说事</p> <span> <a
+						href="/a/zhongshanshuoshi/2015/0310/1677.html"
+						title="钟山说事20150309期" target="_blank">钟山说事20150309期</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-3.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/dalishuishou.jpg" width="115"
+						height="155" /></a>
+					<p>大力水手</p> <span><a href="/view-847-1.html"
+						title="大力水手20140831期：20强种子选手轮番挑战" target="_blank">大力水手20140831期：20强种子选手轮番挑战</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-5.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/jingshixinwen.jpg" width="115"
+						height="155" /></a>
+					<p>经视新闻</p> <span> <a href="/view-1338-1.html"
+						title="经视新闻20141021" target="_blank">经视新闻20141021</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-10.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/jingshiguancha.jpg" width="115"
+						height="155" /></a>
+					<p>经视观察</p> <span> <a href="/view-1489-1.html"
+						title="经视观察20141106期" target="_blank">经视观察20141106期</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-11.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/jingshijiaodian.jpg" width="115"
+						height="155" /></a>
+					<p>经视焦点</p> <span> <a href="/view-1479-1.html"
+						title="经视焦点20141108期" target="_blank">经视焦点20141108期</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-6.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/jingshibobao.jpg" width="115"
+						height="155" /></a>
+					<p>经视播报</p> <span> <a href="/view-1523-1.html"
+						title="经视播报20141108期" target="_blank">经视播报20141108期</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-7.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/wujian360.jpg" width="115"
+						height="155" /></a>
+					<p>午间360</p> <span> <a href="/view-1505-1.html"
+						title="午间360°20141107期" target="_blank">午间360°20141107期</a>
+				</span></li>
+				<li><a href="http://www.hunanjingshi.com/list-8.html"
+					target="_blank"><img
+						src="../templets/jingshi/img/zhibodashijian.jpg" width="115"
+						height="155" /></a>
+					<p>直播大事件</p> <span> <a href="/view-1346-1.html"
+						title="直播大事件20141019" target="_blank">直播大事件20141019</a>
+				</span></li>
+			</ul>
 		</div>
 	</div>
+	<div class="clear"></div>
+	<div class="footer">
+		每晚锁定<a href="http://www.hunanjingshi.com/sitemap.html" target="_blank">重庆影视频道</a>在线直播—全心全意为细看观看<a
+			href="http://www.pindaozhibo.com/tv/hunanjingshi/" target="_blank"
+			title="重庆影视频道">重庆影视频道</a>新闻、钟山说事、越策越开心的朋友提供<a
+			href="http://www.pindaozhibo.com" target="_blank">高清直播网站</a><br />
+		本站声明：本站所有直播信号和视频均从搜索引擎搜索整理获得，所有内容均来自互联网，我们自身不提供任何直播信号和视频内容<br />
+		如有侵犯您的权益请通知我们，我们会第一时间处理。
+		<script type="text/javascript">
+			var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://"
+					: " http://");
+			document
+					.write(unescape("%3Cscript src='"
+							+ _bdhmProtocol
+							+ "hm.baidu.com/h.js%3F3c38875a180dbb999b3ab94455d08ed2' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript" src="${base}/assets/biz-logic/cjx.js"></script>
+		<script type="text/javascript">
+			/*悬浮代码创建于 2014-09-17*/
+			var cpro_id = "u1719898";
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/f.js"
+			type="text/javascript"></script>
 </body>
 </html>
-</#compress>
