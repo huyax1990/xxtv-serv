@@ -82,15 +82,9 @@ public class LoginController extends BaseController
 		}
 	}
 	
-	public void xxtv()
+	public void home()
 	{
-		
-		render("xxtv");
+		render("home");
 	}
 	
-	public void douyu()
-	{
-		
-		render("douyu");
-	}
 }

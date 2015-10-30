@@ -85,20 +85,6 @@ public class SystemConfig extends JFinalConfig
 		// 自动扫描bean和数据库表映射
 		new TablePlugin(arp).start();
 
-		// redis
-		String password = getProperty("cache.password");
-		RedisPlugin redis = null;
-		if (StrKit.isBlank(password))
-		{
-			redis = new RedisPlugin("redis", getProperty("cache.master.ip"), getPropertyToInt("cache.master.port"), 20000);
-		}
-		else
-		{
-			redis = new RedisPlugin("redis", getProperty("cache.master.ip"), getPropertyToInt("cache.master.port"), 20000, password);
-		}
-		me.add(redis);
-
-		me.add(new CachePlugin());
 	}
 
 	/**

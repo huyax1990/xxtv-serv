@@ -6,13 +6,33 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <% include("/pager/common/quote.html"){} %>
 <style>
-	td{background-color: white;}
+td {
+	background-color: white;
+}
 </style>
+<script type="text/javascript">
+	function createHtml() {
+		$.messager.confirm('操作提示', '确定要覆盖前端静态页吗？', function(r) {
+			if (r) {
+				$._ajaxPost('createHtml', {}, function(r) {
+					if (r.r) {
+						$.messager.alert('操作提示', r.m, 'info');
+					} else {
+						$.messager.alert('操作提示', r.m, 'error');
+					}
+				});
+			}
+		});
+	}
+</script>
 </head>
 <body>
-	<br/>
-	&nbsp;&nbsp;&nbsp;首页！
-	<br/>
-	</body>
+	<br /> &nbsp;&nbsp;&nbsp;首页！
+	<br />
+	<p>
+	<div>
+	
+	</div>
+</body>
 </html>
 </#compress>

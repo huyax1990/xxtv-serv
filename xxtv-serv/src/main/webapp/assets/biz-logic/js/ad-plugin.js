@@ -249,11 +249,11 @@ Number.prototype.toQianPercent = function(){
 				height : 'auto',
 				fitColumns : true,
 				singleSelect : true,
+				pageList:[10,20,30,50,100],
 				striped : true,
 				queryParams : {},
 				onLoadError:function(e){
 					$.messager.alert('操作提示','加载远程数据发生错误~','error');
-					console.info(e);
 				}
 			};
 			$.extend(defaults, params);
@@ -607,6 +607,12 @@ Number.prototype.toQianPercent = function(){
 	            return !isNaN(value);
 	        },
 	        message: '该输入项只能输入数字'
+	    },
+	    limitnumber: {
+	    	validator: function(value, param){
+	    		return /^(0(\.\d+)?|1)$/.test(value);
+	        },
+	        message: '请输入0-1之间的小数'
 	    },
 	    version: {
 	    	validator: function(value, param){
